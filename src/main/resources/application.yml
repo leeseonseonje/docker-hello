@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:mariadb://mariadb:3306/hello_docker
+    username: root
+    password: mariadb
+    driver-class-name: org.mariadb.jdbc.Driver
