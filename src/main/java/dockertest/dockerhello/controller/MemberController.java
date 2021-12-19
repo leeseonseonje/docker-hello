@@ -4,6 +4,7 @@ import dockertest.dockerhello.domain.Member;
 import dockertest.dockerhello.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +28,10 @@ public class MemberController {
         return memberService.findById(memberId);
     }
 
+    @Cacheable(value = "members")
     @GetMapping("/members")
     public List<Member> findAll() {
+        log.info("call method findAll");
         return memberService.findAll();
     }
 }
