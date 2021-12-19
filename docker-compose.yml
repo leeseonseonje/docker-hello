@@ -6,9 +6,9 @@ services:
     ports:
       - 8080:8080
     container_name: docker-hello-app
+    restart: always
     depends_on:
       - docker-hello-mariadb
-      - docker-hello-redis
     networks:
       - hello-docker-network
 
